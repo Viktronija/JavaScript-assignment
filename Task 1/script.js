@@ -8,3 +8,39 @@ pamatyti jo pateikto svorio kovertavimą į:
 Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 <div id="output"></div> viduje, bei turi turėti bent minimalų stilių;
 ------------------------------------------------------------------- */
+
+let kgInput = document.getElementById("search");
+let calculateEl = document.getElementById("submit-btn");
+// let lbOutput = kgInput.value * 2.2046;
+let outputDivEl = document.getElementById("output");
+
+calculateEl.addEventListener("click", kgConverter);
+
+function kgConverter(c) {
+  c.preventDefault();
+  outputDivEl.innerHTML = "";
+  if (Number.isNaN(Number.parseFloat(kgInput.value))) {
+    let inputErrorEl = document.createElement("p");
+    inputErrorEl.textContent = "Error: Enter a number!";
+    outputDivEl.appendChild(inputErrorEl);
+  } else {
+    let lbOutput = kgInput.value * 2.2046;
+    let gOutput = kgInput.value / 0.001;
+    let ozOutput = kgInput.value * 35.274;
+
+    const lbOutputEl = document.createElement("div");
+    lbOutputEl.textContent =
+      kgInput.value + " kg = " + Math.round(lbOutput * 100) / 100 + " lb";
+    outputDivEl.appendChild(lbOutputEl);
+
+    const gOutputEl = document.createElement("div");
+    gOutputEl.textContent =
+      kgInput.value + " kg = " + Math.round(gOutput * 100) / 100 + " g";
+    outputDivEl.appendChild(gOutputEl);
+
+    const ozOutputEl = document.createElement("div");
+    ozOutputEl.textContent =
+      kgInput.value + " kg = " + Math.round(ozOutput * 100) / 100 + " oz";
+    outputDivEl.appendChild(ozOutputEl);
+  }
+}
