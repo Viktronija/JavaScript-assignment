@@ -23,6 +23,7 @@ function kgConverter(c) {
     let inputErrorEl = document.createElement("p");
     inputErrorEl.textContent = "Error: Enter a number!";
     outputDivEl.appendChild(inputErrorEl);
+    inputErrorEl.style.color = "red";
   } else {
     let lbOutput = kgInput.value * 2.2046;
     let gOutput = kgInput.value / 0.001;
