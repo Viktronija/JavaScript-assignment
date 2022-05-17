@@ -23,8 +23,15 @@ async function getUsers() {
   outputDivEl.textContent = "";
   data.forEach((element) => {
     const cardOutput = document.createElement("div");
-    cardOutput.classList.add("card");
-    cardOutput.textContent = element.login + " " + element.avatar_url;
+    const loginOutput = document.createElement("div");
+    loginOutput.textContent = "Login: " + element.login;
+    const avatarOutput = document.createElement("div");
+    avatarOutput.textContent = "Avatar url: " + element.avatar_url;
     outputDivEl.appendChild(cardOutput);
+    cardOutput.appendChild(loginOutput);
+    cardOutput.appendChild(avatarOutput);
+    cardOutput.style.border = "1px solid black";
+    cardOutput.style.display = "flex";
+    cardOutput.style.justifyContent = "space-between";
   });
 }
