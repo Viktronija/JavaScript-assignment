@@ -11,7 +11,6 @@ Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 
 let kgInput = document.getElementById("search");
 let calculateEl = document.getElementById("submit-btn");
-// let lbOutput = kgInput.value * 2.2046;
 let outputDivEl = document.getElementById("output");
 
 calculateEl.addEventListener("click", kgConverter);
